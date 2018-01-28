@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<script>
+function validateCredit(){
+	var cardNumber = document.getElementById("credit").value;
+	var pattern = /^(?:5[78][0-9]{13})$/;
+	
+	if(cardNumber == null || cardNumber == ""){
+		alert("enter valid credit card number");
+		
+	}
+	else if(cardNumber.match(pattern)){
+		
+		document.myCredit.credit.focus();
+		return true;
+	}
+	else {
+		document.getElementById('message').innerHTML = "Invalid credit card number, please enter credit card details";
+		//alert("Invalid credit card number, please enter credit card details");
+		document.myCredit.credit.focus();
+		return false;
+	}
+	
+	
+}
+function removeMessage() {
+	document.getElementById('message').innerHTML = "";
+}
+
+</script>
+</head>
+<body>
+
+<h3>Input credit number should start with 57 or 58 and the length of the card no: should be 15 digits</h3>
+
+
+<form name="myCredit" action="" onsubmit="return validateCredit()">
+<table>
+<tr>
+<td> <label>Credit Card Number:</label></td>
+</tr>
+<tr>
+<td> <input type="number" name="credit" id="credit" onkeypress="removeMessage()" />
+</td>
+<td><div id="message" style="color: red"></div></td>
+</tr>
+<tr>
+<td> <input type="submit" value="submit" />
+</td>
+</tr>
+
+
+
+</table>
+</form>
+
+</body>
+</html>
